@@ -10,7 +10,7 @@ System.register(["angular2/core"], function (exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, FavoriteComponent;
+    var core_1, LikeComponent;
     return {
         setters: [
             function (core_1_1) {
@@ -18,34 +18,42 @@ System.register(["angular2/core"], function (exports_1, context_1) {
             }
         ],
         execute: function () {
-            FavoriteComponent = (function () {
-                function FavoriteComponent() {
-                    this.isClicked = false;
+            LikeComponent = (function () {
+                function LikeComponent() {
+                    this.count = 10;
+                    this.isClicked = true;
                     this.change = new core_1.EventEmitter;
                 }
-                FavoriteComponent.prototype.onclick = function () {
+                LikeComponent.prototype.onclick = function (count) {
+                    this.isClicked ? this.count++ : this.count--;
                     this.isClicked = !this.isClicked;
-                    this.change.emit({ newvalue: this.isClicked });
+                    this.change.emit({ newcount: this.count });
                     console.log(this.isClicked);
                 };
-                return FavoriteComponent;
+                return LikeComponent;
             }());
             __decorate([
                 core_1.Input(),
                 __metadata("design:type", Object)
-            ], FavoriteComponent.prototype, "isClicked", void 0);
+            ], LikeComponent.prototype, "count", void 0);
+            __decorate([
+                core_1.Input(),
+                __metadata("design:type", Object)
+            ], LikeComponent.prototype, "isClicked", void 0);
             __decorate([
                 core_1.Output(),
                 __metadata("design:type", Object)
-            ], FavoriteComponent.prototype, "change", void 0);
-            FavoriteComponent = __decorate([
+            ], LikeComponent.prototype, "change", void 0);
+            LikeComponent = __decorate([
                 core_1.Component({
-                    selector: 'favorite',
-                    template: "<i (click) = \"onclick($event)\" \n                [class]=\"isClicked ? 'glyphicon glyphicon-star' \n                : 'glyphicon glyphicon-star-empty'\">\n                </i>\n            ",
+                    selector: 'like',
+                    template: "<i (click) = \"onclick($event)\" class = glyphicon glyphicon-heart\n                [class]=\"isClicked ? 'glyphicon glyphicon-heart' \n                : 'glyphicon glyphicon-heart glyphicon-filled'\">\n                </i>\n                {{count}}\n            ",
+                    styles: ["\n        \n        \n        .glyphicon-heart{\n            color: #ccc;\n            cursor: pointer;\n        }\n        .glyphicon-filled{\n            color: deeppink\n        }\n        "
+                    ]
                 })
-            ], FavoriteComponent);
-            exports_1("FavoriteComponent", FavoriteComponent);
+            ], LikeComponent);
+            exports_1("LikeComponent", LikeComponent);
         }
     };
 });
-//# sourceMappingURL=favorite.component.js.map
+//# sourceMappingURL=like.component.js.map

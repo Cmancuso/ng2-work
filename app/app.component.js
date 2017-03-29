@@ -1,4 +1,4 @@
-System.register(["angular2/core", "./favorite.component"], function (exports_1, context_1) {
+System.register(["angular2/core", "./favorite.component", "./like.component", "./vote.component"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7,7 +7,7 @@ System.register(["angular2/core", "./favorite.component"], function (exports_1, 
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, favorite_component_1, AppComponent;
+    var core_1, favorite_component_1, like_component_1, vote_component_1, AppComponent;
     return {
         setters: [
             function (core_1_1) {
@@ -15,6 +15,12 @@ System.register(["angular2/core", "./favorite.component"], function (exports_1, 
             },
             function (favorite_component_1_1) {
                 favorite_component_1 = favorite_component_1_1;
+            },
+            function (like_component_1_1) {
+                like_component_1 = like_component_1_1;
+            },
+            function (vote_component_1_1) {
+                vote_component_1 = vote_component_1_1;
             }
         ],
         execute: function () {
@@ -28,13 +34,16 @@ System.register(["angular2/core", "./favorite.component"], function (exports_1, 
                 AppComponent.prototype.onFavoriteChange = function ($event) {
                     console.log($event);
                 };
+                AppComponent.prototype.onLikeChange = function ($event) {
+                    console.log($event);
+                };
                 return AppComponent;
             }());
             AppComponent = __decorate([
                 core_1.Component({
                     selector: 'my-app',
-                    template: "<h1>Hello Angular</h1>\n\t\t\t\t<favorite [isClicked] = \"post.isClicked\" (change) = onFavoriteChange($event)></favorite>\n\t\t\t\t\n    \t\t\t",
-                    directives: [favorite_component_1.FavoriteComponent]
+                    template: "\n\t<div>\n\t\t<h1>Hello Angular</h1>\n\t\t<favorite [isClicked] = \"post.isClicked\" (change) = onFavoriteChange($event)></favorite>\n\t\t<like [isClicked] = \"post.isClicked\" (change) = onLikeChange($event)></like>\n\t\t<vote></vote>\n\t</div>\t\t\t\n    ",
+                    directives: [favorite_component_1.FavoriteComponent, like_component_1.LikeComponent, vote_component_1.VoteComponent]
                 })
             ], AppComponent);
             exports_1("AppComponent", AppComponent);

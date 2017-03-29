@@ -7,7 +7,7 @@ import {Component, Input, EventEmitter, Output} from 'angular2/core';
                 [class]="isClicked ? 'glyphicon glyphicon-star' 
                 : 'glyphicon glyphicon-star-empty'">
                 </i>
-            `
+            `,
 })
 export class FavoriteComponent { 
     
