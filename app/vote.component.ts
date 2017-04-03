@@ -4,22 +4,29 @@ import {Component, Input, EventEmitter, Output} from 'angular2/core';
 @Component({
     selector: 'vote',
     template: `
-        <div>
-            <i (click) = "onclick($event)" 
-                [class] = "isClicked ? ' glyphicon glyphicon-menu-up ' 
-                : ' highlighter glyphicon glyphicon-menu-up'">
-            </i><br>
-            <span>{{count}}</span><br>
-            <i (click) = "onclick($event)" 
-                [class] = "isClicked ? ' glyphicon glyphicon-menu-down ' 
-                : ' highlighter glyphicon glyphicon-menu-down'">
+        <div class = "voter">
+            <i (click) = "onclickUp($event)" class = "pointer"
+                [class] = "myVote == 'up' ? ' highlighter glyphicon glyphicon-menu-up pointer' 
+                : '  glyphicon glyphicon-menu-up pointer'">
+            </i>
+            <span>{{voteCount}}</span>
+            <i (click) = "onclickDown($event)" class = "pointer"
+                [class] = "myVote == 'down' ? ' highlighter glyphicon glyphicon-menu-down pointer' 
+                : '  glyphicon glyphicon-menu-down pointer'">
             </i>
         </div>
             `,
     styles: [`
+        .voter{
+            width: 20px;
+            text-align: center;
+            color: #999
+        }
+        .pointer{
+            cursor: pointer;
+        }
         .highlighter{
             color: gold;
-            cursor: pointer;
         }
         .glyphicon-filled{
             color: deeppink
@@ -28,14 +35,30 @@ import {Component, Input, EventEmitter, Output} from 'angular2/core';
     ]
 })
 export class VoteComponent { 
-    @Input() count = 10;
-	@Input() vote = 'up';
+    @Input() voteCount = 0;
+	@Input() myVote = 'neutral';
     @Output() change = new EventEmitter
 
-	onclick(count){
-        this.vote ? this.count++ : this.count--
-		this.isClicked = !this.isClicked
-        this.change.emit({newcount: this.count})
-		console.log(this.isClicked)
-	}
+	onclickUp(voteCount,myVote){
+        if(this.myVote == 'neutral'){
+            this.myVote = 'up';
+            this.voteCount++   
+        }
+        else if (this.myVote == 'down'){
+            this.myVote = 'neutral'
+            this.voteCount++
+        }
+    }
+    onclickDown(voteCount,myVote){
+        if(this.myVote == 'neutral'){
+            this.myVote = 'down';
+            this.voteCount--   
+        }
+        else if (this.myVote == 'up'){
+            this.myVote = 'neutral'
+            this.voteCount--
+        }
+    }
+       
+	
 }

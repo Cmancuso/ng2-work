@@ -20,26 +20,40 @@ System.register(["angular2/core"], function (exports_1, context_1) {
         execute: function () {
             VoteComponent = (function () {
                 function VoteComponent() {
-                    this.count = 10;
-                    this.vote = 'up';
+                    this.voteCount = 0;
+                    this.myVote = 'neutral';
                     this.change = new core_1.EventEmitter;
                 }
-                VoteComponent.prototype.onclick = function (count) {
-                    this.vote ? this.count++ : this.count--;
-                    this.isClicked = !this.isClicked;
-                    this.change.emit({ newcount: this.count });
-                    console.log(this.isClicked);
+                VoteComponent.prototype.onclickUp = function (voteCount, myVote) {
+                    if (this.myVote == 'neutral') {
+                        this.myVote = 'up';
+                        this.voteCount++;
+                    }
+                    else if (this.myVote == 'down') {
+                        this.myVote = 'neutral';
+                        this.voteCount++;
+                    }
+                };
+                VoteComponent.prototype.onclickDown = function (voteCount, myVote) {
+                    if (this.myVote == 'neutral') {
+                        this.myVote = 'down';
+                        this.voteCount--;
+                    }
+                    else if (this.myVote == 'up') {
+                        this.myVote = 'neutral';
+                        this.voteCount--;
+                    }
                 };
                 return VoteComponent;
             }());
             __decorate([
                 core_1.Input(),
                 __metadata("design:type", Object)
-            ], VoteComponent.prototype, "count", void 0);
+            ], VoteComponent.prototype, "voteCount", void 0);
             __decorate([
                 core_1.Input(),
                 __metadata("design:type", Object)
-            ], VoteComponent.prototype, "vote", void 0);
+            ], VoteComponent.prototype, "myVote", void 0);
             __decorate([
                 core_1.Output(),
                 __metadata("design:type", Object)
@@ -47,8 +61,8 @@ System.register(["angular2/core"], function (exports_1, context_1) {
             VoteComponent = __decorate([
                 core_1.Component({
                     selector: 'vote',
-                    template: "\n        <div>\n            <i (click) = \"onclick($event)\" \n                [class] = \"isClicked ? ' glyphicon glyphicon-menu-up ' \n                : ' highlighter glyphicon glyphicon-menu-up'\">\n            </i><br>\n            <span>{{count}}</span><br>\n            <i (click) = \"onclick($event)\" \n                [class] = \"isClicked ? ' glyphicon glyphicon-menu-down ' \n                : ' highlighter glyphicon glyphicon-menu-down'\">\n            </i>\n        </div>\n            ",
-                    styles: ["\n        .highlighter{\n            color: gold;\n            cursor: pointer;\n        }\n        .glyphicon-filled{\n            color: deeppink\n        }\n        "
+                    template: "\n        <div class = \"voter\">\n            <i (click) = \"onclickUp($event)\" class = \"pointer\"\n                [class] = \"myVote == 'up' ? ' highlighter glyphicon glyphicon-menu-up pointer' \n                : '  glyphicon glyphicon-menu-up pointer'\">\n            </i>\n            <span>{{voteCount}}</span>\n            <i (click) = \"onclickDown($event)\" class = \"pointer\"\n                [class] = \"myVote == 'down' ? ' highlighter glyphicon glyphicon-menu-down pointer' \n                : '  glyphicon glyphicon-menu-down pointer'\">\n            </i>\n        </div>\n            ",
+                    styles: ["\n        .voter{\n            width: 20px;\n            text-align: center;\n            color: #999\n        }\n        .pointer{\n            cursor: pointer;\n        }\n        .highlighter{\n            color: gold;\n        }\n        .glyphicon-filled{\n            color: deeppink\n        }\n        "
                     ]
                 })
             ], VoteComponent);

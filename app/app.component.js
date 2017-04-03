@@ -28,7 +28,9 @@ System.register(["angular2/core", "./favorite.component", "./like.component", ".
                 function AppComponent() {
                     this.post = {
                         title: "this is the title",
-                        isClicked: true
+                        isClicked: true,
+                        voteCount: 9,
+                        myVote: 'neutral'
                     };
                 }
                 AppComponent.prototype.onFavoriteChange = function ($event) {
@@ -42,7 +44,7 @@ System.register(["angular2/core", "./favorite.component", "./like.component", ".
             AppComponent = __decorate([
                 core_1.Component({
                     selector: 'my-app',
-                    template: "\n\t<div>\n\t\t<h1>Hello Angular</h1>\n\t\t<favorite [isClicked] = \"post.isClicked\" (change) = onFavoriteChange($event)></favorite>\n\t\t<like [isClicked] = \"post.isClicked\" (change) = onLikeChange($event)></like>\n\t\t<vote></vote>\n\t</div>\t\t\t\n    ",
+                    template: "\n\t<div>\n\t\t<h1>Hello Angular</h1>\n\t\t<favorite [isClicked] = \"post.isClicked\" (change) = onFavoriteChange($event)></favorite>\n\t\t<like [isClicked] = \"post.isClicked\" (change) = onLikeChange($event)></like>\n\t\t<vote [myVote] = \"post.myVote\" [voteCount]=\"post.voteCount\"></vote>\n\t\t<tweet></tweet>\n\t</div>\t\t\t\n    ",
                     directives: [favorite_component_1.FavoriteComponent, like_component_1.LikeComponent, vote_component_1.VoteComponent]
                 })
             ], AppComponent);
