@@ -49,7 +49,7 @@ System.register(["angular2/core", "./favorite.component", "./like.component", ".
             }());
             AppComponent = __decorate([
                 core_1.Component({
-                    selector: 'my-app',
+                    selector: 'contact-form',
                     template: "\n\t<div>\n\t\t<h1>Hello Angular</h1>\n\t\t<favorite [isClicked] = \"post.isClicked\" (change) = onFavoriteChange($event)></favorite>\n\t\t<like [isClicked] = \"post.isClicked\" (change) = onLikeChange($event)></like>\n\t\t<vote [myVote] = \"post.myVote\" [voteCount]=\"post.voteCount\"></vote>\n\t\t<tweet></tweet>\n\t\t<zippy title = \"this is the Title\">\n\t\t\t<div class = \"title\">This is the Title</div>\n\t\t\t<div class = \"body\">This is the body</div>\n\t\t</zippy>\n\t</div>\t\t\t\n    ",
                     directives: [favorite_component_1.FavoriteComponent, like_component_1.LikeComponent, vote_component_1.VoteComponent, tweet_component_1.TweetComponent, zippy_component_1.ZippyComponent]
                 })
@@ -58,4 +58,4 @@ System.register(["angular2/core", "./favorite.component", "./like.component", ".
         }
     };
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=contact.component.js.map

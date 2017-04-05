@@ -1,4 +1,4 @@
-System.register(["angular2/core"], function (exports_1, context_1) {
+System.register(["angular2/core", "./like.component"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,17 +10,21 @@ System.register(["angular2/core"], function (exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, TweetComponent;
+    var core_1, like_component_1, TweetComponent;
     return {
         setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (like_component_1_1) {
+                like_component_1 = like_component_1_1;
             }
         ],
         execute: function () {
             TweetComponent = (function () {
                 function TweetComponent() {
-                    this.isClicked = false;
+                    this.Name = 'Test';
+                    this.Handle = '@Test';
                     this.change = new core_1.EventEmitter;
                 }
                 TweetComponent.prototype.onclick = function () {
@@ -33,7 +37,11 @@ System.register(["angular2/core"], function (exports_1, context_1) {
             __decorate([
                 core_1.Input(),
                 __metadata("design:type", Object)
-            ], TweetComponent.prototype, "isClicked", void 0);
+            ], TweetComponent.prototype, "Name", void 0);
+            __decorate([
+                core_1.Input(),
+                __metadata("design:type", Object)
+            ], TweetComponent.prototype, "Handle", void 0);
             __decorate([
                 core_1.Output(),
                 __metadata("design:type", Object)
@@ -41,7 +49,10 @@ System.register(["angular2/core"], function (exports_1, context_1) {
             TweetComponent = __decorate([
                 core_1.Component({
                     selector: 'tweet',
-                    template: "\n        <div class=\"media\">\n            <div class=\"media-left\">\n                <a href=\"#\">\n                <img class=\"media-object\" src=\"...\" alt=\"...\">\n                </a>\n            </div>\n            <div class=\"media-body\">\n                <h4 class=\"media-heading\">Media heading</h4>\n                ...\n            </div>\n        </div>\n            ",
+                    template: "\n        <div class=\"media\">\n            <div class=\"media-left\">\n                <a href=\"#\">\n                    <img class=\"media-object\" src=\"http://lorempixel.com/100/100/people?1\">\n                </a>\n            </div>\n            <div class=\"media-body\">\n                <h4 class=\"media-heading\">{{Name}} {{Handle}}</h4>\n                <p>Some Text</p>\n                <like></like>\n            </div>\n        </div>\n            ",
+                    styles: ["\n        .voter{\n            width: 20px;\n            text-align: center;\n            color: #999\n        }\n        .pointer{\n            cursor: pointer;\n        }\n        .highlighter{\n            color: gold;\n        }\n        .glyphicon-filled{\n            color: deeppink\n        }\n        "
+                    ],
+                    directives: [like_component_1.LikeComponent]
                 })
             ], TweetComponent);
             exports_1("TweetComponent", TweetComponent);

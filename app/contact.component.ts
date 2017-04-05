@@ -7,7 +7,7 @@ import {TweetComponent} from './tweet.component'
 import {ZippyComponent} from './zippy.component'
 
 @Component({
-    selector: 'my-app',
+    selector: 'contact-form',
     template: `
 	<div>
 		<h1>Hello Angular</h1>
