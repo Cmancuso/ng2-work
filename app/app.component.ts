@@ -5,6 +5,7 @@ import {LikeComponent} from './like.component'
 import {VoteComponent} from './vote.component'
 import {TweetComponent} from './tweet.component'
 import {ZippyComponent} from './zippy.component'
+import {ContactFormComponent} from './contact-form.component'
 
 @Component({
     selector: 'my-app',
@@ -19,9 +20,10 @@ import {ZippyComponent} from './zippy.component'
 			<div class = "title">This is the Title</div>
 			<div class = "body">This is the body</div>
 		</zippy>
+		<contact-form></contact-form>
 	</div>			
     `,
-    directives: [FavoriteComponent, LikeComponent, VoteComponent, TweetComponent,ZippyComponent]
+    directives: [FavoriteComponent, LikeComponent, VoteComponent, TweetComponent, ZippyComponent, ContactFormComponent]
 })
 export class AppComponent { 
 	post = {

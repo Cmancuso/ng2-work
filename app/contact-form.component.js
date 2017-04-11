@@ -1,4 +1,4 @@
-System.register(['angular2/core', './course.service'], function(exports_1, context_1) {
+System.register(['angular2/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,34 +10,34 @@ System.register(['angular2/core', './course.service'], function(exports_1, conte
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, course_service_1;
-    var CoursesComponent;
+    var core_1;
+    var ContactFormComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (course_service_1_1) {
-                course_service_1 = course_service_1_1;
             }],
         execute: function() {
-            CoursesComponent = (function () {
-                function CoursesComponent(courseService) {
-                    this.title = "The title of courses page";
-                    this.courses = courseService.getCourses();
+            ContactFormComponent = (function () {
+                function ContactFormComponent() {
                 }
-                CoursesComponent = __decorate([
+                ContactFormComponent.prototype.log = function (x) {
+                    console.log(x);
+                };
+                ContactFormComponent.prototype.onSubmit = function (form) {
+                    console.log(form);
+                };
+                ContactFormComponent = __decorate([
                     core_1.Component({
-                        selector: 'courses',
-                        template: "\n\t\t<h2>Courses</h2>\n\t\t{{title}}\n\t\t<ul>\n\t\t\t<li *ngFor=\"#course of courses\">\n\t\t\t\t{{course}}\n\t\t\t</li>\n\t\t</ul>\n\t",
-                        providers: [course_service_1.CourseService]
+                        selector: 'contact-form',
+                        templateUrl: 'app/contact-form.component.html'
                     }), 
-                    __metadata('design:paramtypes', [course_service_1.CourseService])
-                ], CoursesComponent);
-                return CoursesComponent;
+                    __metadata('design:paramtypes', [])
+                ], ContactFormComponent);
+                return ContactFormComponent;
             }());
-            exports_1("CoursesComponent", CoursesComponent);
+            exports_1("ContactFormComponent", ContactFormComponent);
         }
     }
 });
-//# sourceMappingURL=courses.component.js.map
+//# sourceMappingURL=contact-form.component.js.map
