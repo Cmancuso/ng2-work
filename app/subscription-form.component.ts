@@ -1,0 +1,15 @@
+import {Component} from 'angular2/core';
+
+@Component({
+    selector: 'subscription-form',
+    templateUrl: 'app/subscription-form.component.html'
+})
+
+export class SubscriptionFormComponent{
+    log(x){
+        console.log(x);
+    }
+    onSubmit(form){
+        console.log(form);
+    }
+}

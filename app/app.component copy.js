@@ -34,4 +34,4 @@ System.register(["angular2/core", "./signup-form.component"], function (exports_
         }
     };
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=app.component copy.js.map

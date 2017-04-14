@@ -1,4 +1,4 @@
-System.register(["angular2/core", "./signup-form.component"], function (exports_1, context_1) {
+System.register(["angular2/core"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7,31 +7,33 @@ System.register(["angular2/core", "./signup-form.component"], function (exports_
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, signup_form_component_1, AppComponent;
+    var core_1, SubscriptionFormComponent;
     return {
         setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (signup_form_component_1_1) {
-                signup_form_component_1 = signup_form_component_1_1;
             }
         ],
         execute: function () {
-            AppComponent = (function () {
-                function AppComponent() {
+            SubscriptionFormComponent = (function () {
+                function SubscriptionFormComponent() {
                 }
-                return AppComponent;
+                SubscriptionFormComponent.prototype.log = function (x) {
+                    console.log(x);
+                };
+                SubscriptionFormComponent.prototype.onSubmit = function (form) {
+                    console.log(form);
+                };
+                return SubscriptionFormComponent;
             }());
-            AppComponent = __decorate([
+            SubscriptionFormComponent = __decorate([
                 core_1.Component({
-                    selector: 'my-app',
-                    directives: [signup_form_component_1.SignUpFormComponent],
-                    template: "\n        <signup-form></signup-form>\n    "
+                    selector: 'subscription-form',
+                    templateUrl: 'app/subscription-form.component.html'
                 })
-            ], AppComponent);
-            exports_1("AppComponent", AppComponent);
+            ], SubscriptionFormComponent);
+            exports_1("SubscriptionFormComponent", SubscriptionFormComponent);
         }
     };
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=subscription-form.component.js.map

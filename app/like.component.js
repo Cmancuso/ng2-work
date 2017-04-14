@@ -1,6 +1,5 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(["angular2/core"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,14 +9,15 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
-    var LikeComponent;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, LikeComponent;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             LikeComponent = (function () {
                 function LikeComponent() {
                     this.count = 10;
@@ -30,31 +30,30 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     this.change.emit({ newcount: this.count });
                     console.log(this.isClicked);
                 };
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', Object)
-                ], LikeComponent.prototype, "count", void 0);
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', Object)
-                ], LikeComponent.prototype, "isClicked", void 0);
-                __decorate([
-                    core_1.Output(), 
-                    __metadata('design:type', Object)
-                ], LikeComponent.prototype, "change", void 0);
-                LikeComponent = __decorate([
-                    core_1.Component({
-                        selector: 'like',
-                        template: "<i (click) = \"onclick($event)\" class = glyphicon glyphicon-heart\n                [class]=\"isClicked ? 'glyphicon glyphicon-heart' \n                : 'glyphicon glyphicon-heart glyphicon-filled'\">\n                </i>\n                {{count}}\n            ",
-                        styles: ["\n        \n        \n        .glyphicon-heart{\n            color: #ccc;\n            cursor: pointer;\n        }\n        .glyphicon-filled{\n            color: deeppink\n        }\n        "
-                        ]
-                    }), 
-                    __metadata('design:paramtypes', [])
-                ], LikeComponent);
                 return LikeComponent;
             }());
+            __decorate([
+                core_1.Input(),
+                __metadata("design:type", Object)
+            ], LikeComponent.prototype, "count", void 0);
+            __decorate([
+                core_1.Input(),
+                __metadata("design:type", Object)
+            ], LikeComponent.prototype, "isClicked", void 0);
+            __decorate([
+                core_1.Output(),
+                __metadata("design:type", Object)
+            ], LikeComponent.prototype, "change", void 0);
+            LikeComponent = __decorate([
+                core_1.Component({
+                    selector: 'like',
+                    template: "<i (click) = \"onclick($event)\" class = glyphicon glyphicon-heart\n                [class]=\"isClicked ? 'glyphicon glyphicon-heart' \n                : 'glyphicon glyphicon-heart glyphicon-filled'\">\n                </i>\n                {{count}}\n            ",
+                    styles: ["\n        \n        \n        .glyphicon-heart{\n            color: #ccc;\n            cursor: pointer;\n        }\n        .glyphicon-filled{\n            color: deeppink\n        }\n        "
+                    ]
+                })
+            ], LikeComponent);
             exports_1("LikeComponent", LikeComponent);
         }
-    }
+    };
 });
 //# sourceMappingURL=like.component.js.map
